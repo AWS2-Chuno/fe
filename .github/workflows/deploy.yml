@@ -28,10 +28,10 @@ jobs:
           CI: false  # CI 변수를 false로 설정하여 경고 무시
         run: npm run build
 
-      - name: Install AWS CLI
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y awscli
+      # - name: Install AWS CLI
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install -y awscli
 
       - name: Deploy to S3
         run: |
@@ -43,7 +43,7 @@ jobs:
 
       - name: Invalidate CloudFront Cache
         run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*" --debug
+          aws cloudfront create-invalidation --distribution-id E1E2SKFTJ8O1J8 --paths "/*"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
