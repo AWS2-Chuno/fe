@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Node.js 버전 설정
+          node-version: '22.6.0' # Node.js 버전 설정
 
       - name: Install dependencies
         run: npm install
