@@ -28,6 +28,11 @@ jobs:
           CI: false  # CI 변수를 false로 설정하여 경고 무시
         run: npm run build
 
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
+
       - name: Deploy to S3
         run: |
           aws s3 sync ./build s3://chuno-frontend --delete
