@@ -1,0 +1,58 @@
+.course-container {
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
+  background-color: #f5f5f5;
+}
+
+.course-title {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap; /* 여러 줄로 배치 가능 */
+  justify-content: space-between; /* 항목 사이의 간격 조정 */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.course-item {
+  display: flex;
+  flex-direction: column; /* 썸네일과 제목을 세로로 배치 */
+  align-items: center; /* 가운데 정렬 */
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: calc(24% - 20px); /* 한 줄에 4개 배치 (여백을 제외한 폭) */
+  box-sizing: border-box; /* 패딩과 테두리를 포함한 폭 계산 */
+}
+
+.course-thumbnail {
+  width: 100px; /* 썸네일 폭 설정 */
+  height: 100px; /* 썸네일 높이 설정 */
+  margin-bottom: 10px; /* 썸네일과 제목 사이의 간격 */
+}
+
+.course-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 제목과 인스트럭터 정보를 가운데 정렬 */
+}
+
+.course-item h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  text-align: center; /* 제목 가운데 정렬 */
+}
+
+.course-item p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #555;
+}
