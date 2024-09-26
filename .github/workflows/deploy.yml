@@ -25,6 +25,7 @@ jobs:
         env:
           REACT_APP_USER_POOL_ID: ${{ secrets.REACT_APP_USER_POOL_ID }}
           REACT_APP_CLIENT_ID: ${{ secrets.REACT_APP_CLIENT_ID }}
+          CI: false  # CI 변수를 false로 설정하여 경고 무시
         run: npm run build
 
       - name: Deploy to S3
