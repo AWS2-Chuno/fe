@@ -21,8 +21,6 @@ const Header = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
-    localStorage.removeItem('idToken');
-    localStorage.removeItem('refreshToken');
     setIsAuthenticated(false); // 로그아웃 시 인증 상태 업데이트
     navigate('/login'); // 홈 페이지로 리디렉션
   };
