@@ -31,7 +31,7 @@ jobs:
       # - name: Install AWS CLI
       #   run: |
       #     sudo apt-get update
-      #     sudo apt-get install -y awscli
+      #     sudo apt-get install -y awscli 
 
       - name: Deploy to S3
         run: |
