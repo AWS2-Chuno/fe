@@ -20,7 +20,7 @@ const CourseList = () => {
   // 강의 목록을 가져오는 함수
   const fetchCourses = async () => {
     try {
-      const response = await axios.get('http://a482a88683a4a45a3b44e48a15741db4-1541872073.ap-northeast-3.elb.amazonaws.com/videos', {
+      const response = await axios.get('https://a482a88683a4a45a3b44e48a15741db4-1541872073.ap-northeast-3.elb.amazonaws.com/videos', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`, // JWT 토큰을 헤더에 추가합니다.
         },
