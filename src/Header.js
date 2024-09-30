@@ -52,7 +52,7 @@ const Header = () => {
               <li><a href="/courseList">courseList</a></li>
               <li>
                 <button onClick={toggleDropdown} className="user-dropdown-button">
-                  <img src={userImage} alt="User" style={{ width: '20px', height: 'auto', borderRadius: '80%' }} />
+                <i className="material-icons" style={{ fontSize: '24px', cursor: 'pointer' }}>menu</i>
                 </button>
                 {isDropdownOpen && (
                   <div className="dropdown-menu">
