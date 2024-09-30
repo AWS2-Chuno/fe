@@ -10,6 +10,8 @@ import CourseDetail from './CourseDetail';
 
 
 
+
+
 function App() {
 
   
@@ -27,6 +29,9 @@ function App() {
 
         <Route path="/courselist" element={<CourseList />} />
         <Route path="/courses/:courseId" component={CourseDetail} /> {/* 상세 페이지 라우트 */}
+        
+
+
       </Routes>
     </Router>
   );
