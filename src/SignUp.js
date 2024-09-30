@@ -14,8 +14,7 @@ export const userPool = new CognitoUserPool(poolData);  // Export userPool
 const SignUp = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    Name: '',
     email: '',
     phone: '',
     password: '',
@@ -30,6 +29,16 @@ const SignUp = () => {
     e.preventDefault();
 
     const attributeList = [];
+    
+    // Add name attribute
+    const dataName = {
+      Name: 'name',  // AWS Cognito expects 'name' as the attribute key
+      Value: formData.Name,
+    };
+    const attributeName = new CognitoUserAttribute(dataName);
+    attributeList.push(attributeName);
+
+    // Add email attribute
     const dataEmail = {
       Name: 'email',
       Value: formData.email,
@@ -55,16 +64,9 @@ const SignUp = () => {
         <div className="form-row">
           <input
             type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={formData.firstName}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={formData.lastName}
+            name="Name"
+            placeholder="Name"
+            value={formData.Name}
             onChange={handleChange}
           />
         </div>
