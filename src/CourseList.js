@@ -45,6 +45,7 @@ const CourseList = () => {
       fetchCourses();
     } catch (error) {
       console.error('Error deleting video:', error);
+      alert('본인의 비디오만 삭제할 수 있습니다.');
     }
   };
 
