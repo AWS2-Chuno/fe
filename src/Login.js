@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
+import { CognitoUser, AuthenticationDetails, CognitoIdToken } from 'amazon-cognito-identity-js';
 import { userPool } from './SignUp'; // Import the Cognito user pool from SignUp.js
 import './Login.css';
 
@@ -12,46 +12,48 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // AWS Cognito 로그인 로직
+  
     const authenticationData = {
       Username: email,
       Password: password,
     };
     const authenticationDetails = new AuthenticationDetails(authenticationData);
-
+  
     const userData = {
       Username: email,
       Pool: userPool,
     };
     const cognitoUser = new CognitoUser(userData);
-
+  
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: (result) => {
         alert('로그인 성공!');
-
-        // JWT 토큰 추출
+  
         const accessToken = result.getAccessToken().getJwtToken();
-        // const idToken = result.getIdToken().getJwtToken();
-        // const refreshToken = result.getRefreshToken().getToken();
-
-        // JWT 토큰을 콘솔에 출력
-        // console.log('Access Token:', accessToken);
-        // console.log('ID Token:', idToken);
-        // console.log('Refresh Token:', refreshToken);
-
-        // JWT 토큰을 localStorage에 저장
         localStorage.setItem('accessToken', accessToken);
-        // localStorage.setItem('idToken', idToken);
-        // localStorage.setItem('refreshToken', refreshToken);
-
-        // 코스 목록으로 이동
-        navigate('/CourseList');
-        window.location.reload();
+        
+        // Fetch user attributes
+        cognitoUser.getUserAttributes((err, attributes) => {
+          if (err) {
+            console.error('Failed to get user attributes:', err);
+            return;
+          }
+  
+          // Find the 'name' attribute
+          const nameAttribute = attributes.find(attr => attr.getName() === 'name');
+          if (nameAttribute) {
+            const name = nameAttribute.getValue();
+            localStorage.setItem('username', name); // Store name in localStorage
+          }
+  
+          // Redirect to CourseList
+          navigate('/CourseList');
+          window.location.reload();
+        });
       },
       onFailure: (err) => {
         console.error('Login failed:', err);
-        setErrorMessage('로그인 실패: ' + err.message); // 오류 메시지 출력
+        setErrorMessage('로그인 실패: ' + err.message);
       },
     });
   };
