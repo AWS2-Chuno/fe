@@ -42,6 +42,7 @@ const CourseList = () => {
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
       });
+      alert('삭제가 완료되었습니다.'); // Alert for successful deletion
       fetchCourses();
     } catch (error) {
       console.error('Error deleting video:', error);
