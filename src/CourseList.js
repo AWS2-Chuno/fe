@@ -56,7 +56,7 @@ const CourseList = () => {
 
   return (
     <div className="course-container">
-      <h2 className="course-title">강의 목록</h2>
+      <h2 className="course-title">🔎 강의 목록</h2>
 
       {/* 업로드 모달 열기 버튼 */}
       <button className="upload-button" onClick={toggleModal}>강의 업로드</button>

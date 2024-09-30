@@ -49,7 +49,7 @@ const Header = () => {
           )}
           {isAuthenticated && (
             <>
-              <li><a href="/courseList">courseList</a></li>
+              <li><a href="/courseList">CourseList</a></li>
               <li>
                 <button onClick={toggleDropdown} className="user-dropdown-button">
                 <i className="material-icons" style={{ fontSize: '24px', cursor: 'pointer' }}>menu</i>

@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  background-color: #b2aeff;
+  background-color: #ffffff;
   color: white;
   padding: 5px 0;
   display: flex;
@@ -28,7 +28,7 @@
 }
 
 .nav-links ul li a {
-  color: white;
+  color: rgb(0, 0, 0);
   text-decoration: none;
   font-size: 18px;
 }
