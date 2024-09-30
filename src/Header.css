@@ -1,53 +1,81 @@
 .header {
-    width: 100%;
-    background-color: #808080;
-    color: white;
-    padding: 5px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed; /* 헤더를 고정 */
-    top: 0;
-    left: 0;
-    z-index: 1000; /* 다른 요소 위에 위치 */
-  }
-  
-  .logo h1 {
-    margin-left: 20px;
-    font-size: 24px;
-  }
-  
-  .nav-links ul {
-    display: flex;
-    list-style: none;
-    margin-right: 20px;
-  }
-  
-  .nav-links ul li {
-    margin-left: 20px;
-  }
-  
-  .nav-links ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  
-  .nav-links ul li a:hover {
-    text-decoration: underline;
-  }
-
-  .logout-button {
-    background-color: #ffffff; /* Red background for emphasis */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    color: rgb(0, 0, 0); /* Text color */
-    font-size: 17px; /* Font size */
-    
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth background color transition */
+  width: 100%;
+  background-color: #808080;
+  color: white;
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
-.logout-button:hover {
-    background-color: #e84118; /* Darker red on hover */
+.logo h1 {
+  margin-left: 20px;
+  font-size: 24px;
+}
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  margin-right: 20px;
+}
+
+.nav-links ul li {
+  margin-left: 20px;
+}
+
+.nav-links ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav-links ul li a:hover {
+  text-decoration: underline;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* 드롭다운 */
+.user-dropdown-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 드롭다운 메뉴 */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* 드롭다운 메뉴를 버튼 바로 아래에 위치시킴 */
+  right: 0%; /* 드롭다운을 버튼 왼쪽으로 정렬 */
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 2000; /* 더 높은 값으로 설정 */
+  min-width: 200px; /* 최소 너비 설정 */
+}
+
+.dropdown-menu p {
+  margin: 0;
+  padding: 0;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
 }
