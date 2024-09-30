@@ -80,3 +80,18 @@
   background-color: #333;
   color: white;
 }
+
+.hero {
+  background-color: #f5f5f5; /* Fallback color */
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-image: url('/src/assets/images/images_tygerhwang_post_e96f6b08-569f-4e37-bc91-4a5759a1e841_1767D3364E05E07203.jpeg'); /* Replace with your image path */
+  background-size: cover; /* Cover the entire section */
+  background-position: center; /* Center the image */
+  
+
+}

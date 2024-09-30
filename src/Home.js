@@ -19,7 +19,7 @@ const Home = () => {
     <div className="home-container">
       <section className="hero">
         <div className="hero-text">
-          <h1>추노</h1>
+          {/* <h1>추노</h1> */}
           
           {!isAuthenticated && ( // 로그인 안된 상태에서만 표시
             <>
@@ -30,7 +30,7 @@ const Home = () => {
 
           {isAuthenticated && ( // 로그인 된 상태에서만 표시
             <>
-              {name}
+              {/* {name} */}
             </>
           )}
 
