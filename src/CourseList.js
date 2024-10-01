@@ -74,13 +74,13 @@ const CourseList = () => {
 
       {/* 업로드 모달 열기 버튼 */}
       <button className="upload-button" onClick={toggleModal}>강의 업로드</button>
+      <div className="button-container">
+        {/* 강의 목록 전체보기 버튼 */}
+        <button className="view-all-button" onClick={handleViewAllCourses}>전체 강의 목록</button>
 
-      {/* 강의 목록 전체보기 버튼 */}
-      <button className="view-all-button" onClick={handleViewAllCourses}>강의 목록 전체보기</button>
-
-      {/* 내 강의 목록 보기 버튼 */}
-      <button className="view-my-button" onClick={handleViewMyCourses}>내 강의 목록 보기</button>
-
+        {/* 내 강의 목록 보기 버튼 */}
+        <button className="view-my-button" onClick={handleViewMyCourses}>내 강의 목록</button>
+      </div>
       {/* 모달 컴포넌트 */}
       <UploadModal isOpen={isModalOpen} onClose={toggleModal} fetchCourses={fetchCourses} />
 
@@ -92,7 +92,10 @@ const CourseList = () => {
               <Link to={`/courses/${course.id}`} className="course-link">
                 <h3>{course.title}</h3>
               </Link>
-              <button onClick={() => handleDelete(course.id)}>삭제</button>
+              {/* viewMode가 'mine'일 때만 삭제 버튼을 표시 */}
+              {viewMode === 'mine' && (
+                <button onClick={() => handleDelete(course.id)}>삭제</button>
+              )}
             </div>
           </div>
         ))}

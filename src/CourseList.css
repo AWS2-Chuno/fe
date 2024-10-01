@@ -156,3 +156,55 @@
 .upload-button:active {
   transform: translateY(0); /* Reset lift effect when clicked */
 }
+
+
+/* View All Courses Button */
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  margin-bottom: 10px; /* Space below the button container */
+}
+
+
+.view-all-button {
+  width: 130px; /* 동일한 너비 */
+  height: 40px; /* 동일한 높이 */
+  padding: 8px 16px; /* Smaller padding */
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  font-size: 14px; /* Smaller font size */
+  border: none; /* Remove border */
+  border-radius: 6px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease, content 0.3s ease; /* Smooth hover effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  margin-right: 5px;
+}
+
+.view-all-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  content: "모든 강의 전체보기"; /* Change text on hover */
+}
+
+/* View My Courses Button */
+.view-my-button {
+  width: 130px; /* 동일한 너비 */
+  height: 40px; /* 동일한 높이 */
+  padding: 8px 16px; /* Smaller padding */
+  background-color: #ff9800; /* Orange background */
+  color: white; /* White text */
+  font-size: 14px; /* Smaller font size */
+  border: none; /* Remove border */
+  border-radius: 6px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease, content 0.3s ease; /* Smooth hover effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+.view-my-button:hover {
+  background-color: #e68900; /* Darker orange on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  content: "내 강의 전체보기"; /* Change text on hover */
+}
