@@ -22,7 +22,7 @@ const CourseList = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get('http://k8s-ekschunogroup-be2f0b00cc-439757005.ap-northeast-3.elb.amazonaws.com/videos', {
+      const response = await axios.get('https://k8s-ekschunogroup-be2f0b00cc-439757005.ap-northeast-3.elb.amazonaws.com/videos', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
@@ -39,7 +39,7 @@ const CourseList = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://k8s-ekschunogroup-be2f0b00cc-439757005.ap-northeast-3.elb.amazonaws.com/videos${videoId}`, {
+      await axios.delete(`https://k8s-ekschunogroup-be2f0b00cc-439757005.ap-northeast-3.elb.amazonaws.com/videos${videoId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
