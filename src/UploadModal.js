@@ -36,7 +36,7 @@ const UploadModal = ({ isOpen, onClose, fetchCourses }) => {
 
     try {
       await axios.post(
-        'https://k8s-ekschunogroup-be2f0b00cc-439757005.ap-northeast-3.elb.amazonaws.com/videos/',
+        'https://api.chuno.store/videos/',
         formData,
         {
           headers: {
