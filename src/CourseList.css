@@ -9,6 +9,7 @@
 }
 
 .course-title {
+  margin-top: 30px;
   margin-bottom: 20px;
   text-align: left;
   font-size: 24px; /* Increase font size for the title */

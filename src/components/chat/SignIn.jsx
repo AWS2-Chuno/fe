@@ -23,7 +23,7 @@ const SignIn = ({ handleSignIn }) => {
         <form onSubmit={(e) => {e.preventDefault()}}>
           <fieldset>
             <label htmlFor="name" className="mg-b-05">
-              Username
+              Nickname
             </label>
             <input
               name="name"
@@ -31,7 +31,7 @@ const SignIn = ({ handleSignIn }) => {
               ref={inputRef}
               type="text"
               className="radius"
-              placeholder="Type here..."
+              placeholder="채팅에 사용할 닉네임"
               autoComplete="off"
               value={username}
               onChange={(e) => {

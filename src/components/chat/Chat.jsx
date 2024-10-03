@@ -593,8 +593,8 @@ const Chat = () => {
                   type='text'
                   placeholder={
                     isChatConnected()
-                      ? 'Say something'
-                      : 'Waiting to connect...'
+                      ? '|'
+                      : 'connecting...'
                   }
                   value={message}
                   maxLength={500}
