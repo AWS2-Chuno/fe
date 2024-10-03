@@ -8,6 +8,9 @@ import Header from './Header'; // Header 컴포넌트 추가
 import Home from './Home';     // Home 컴포넌트 추가
 import CourseDetail from './CourseDetail';
 
+import Chat from './components/chat/Chat';
+
+
 
 
 
@@ -29,6 +32,9 @@ function App() {
 
         <Route path="/courselist" element={<CourseList />} />
         <Route path="/courses/:courseId" component={CourseDetail} /> {/* 상세 페이지 라우트 */}
+
+        <Route path="/chat" element={<Chat />} />
+
         
 
 
