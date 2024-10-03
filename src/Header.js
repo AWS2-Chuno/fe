@@ -49,6 +49,7 @@ const Header = () => {
           )}
           {isAuthenticated && (
             <>
+              <li><a href="/chat">방송실</a></li>
               <li><a href="/courseList">CourseList</a></li>
               <li>
                 <button onClick={toggleDropdown} className="user-dropdown-button">
