@@ -14,7 +14,7 @@
 }
 
 .signup-form {
-  padding: 20px;
+  padding: 23px;
   width: 400px;
   background-color: #fff; /* 배경 색상 추가 */
   border-radius: 8px; /* 약간의 곡선 처리 */
@@ -24,11 +24,11 @@
 .form-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .form-row input, .form-row select {
-  width: 43%;
+  width:350px;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;

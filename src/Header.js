@@ -43,6 +43,7 @@ const Header = () => {
           {/* <li><a href="/">Home</a></li> */}
           {!isAuthenticated && (
             <>
+              <li><a href="/chat">방송실</a></li>
               <li><a href="/login">Login</a></li>
               <li><a href="/signup">Sign Up</a></li>
             </>

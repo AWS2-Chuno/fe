@@ -93,6 +93,8 @@ const SignUp = () => {
             value={formData.password}
             onChange={handleChange}
           />
+        </div>
+        <div className="form-row">
           <input
             type="password"
             name="confirmPassword"

@@ -23,8 +23,8 @@ const Home = () => {
           
           {!isAuthenticated && ( // 로그인 안된 상태에서만 표시
             <>
-              <a href="/login" className="cta-btn">로그인</a>
-              <a href="/signup" className="cta-btn">회원가입</a>
+              {/* <a href="/login" className="cta-btn">로그인</a>
+              <a href="/signup" className="cta-btn">회원가입</a> */}
             </>
           )}
 
