@@ -66,7 +66,7 @@ const Header = () => {
                       display: 'inline-flex',
                       alignItems: 'center',
                       fontFamily: '"Roboto", sans-serif'}}>
-                        <span style={{ fontSize: '1.5rem', marginRight: '5px' }}>🏠</span> {username}님
+                        <span style={{ fontSize: '1.5rem', marginRight: '5px' }}>✏️</span> {username}님
                         </p>
                         <br></br>
                     <button onClick={handleLogout} className="logout-button">Logout</button>
