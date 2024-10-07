@@ -571,7 +571,7 @@ const Chat = () => {
   return (
     <>
       <header>
-        <h1>상웅 방송실</h1>
+        
       </header>
       <div className='main full-width full-height chat-container'>
         <div className='content-wrapper mg-2'>
