@@ -31,7 +31,7 @@ function App() {
         <Route path="/login" element={<Login />} />
 
         <Route path="/courselist" element={<CourseList />} />
-        <Route path="/courses/:courseId" component={CourseDetail} /> {/* 상세 페이지 라우트 */}
+        <Route path="/courses/:id" element={<CourseDetail />} />
 
         <Route path="/chat" element={<Chat />} />
 
