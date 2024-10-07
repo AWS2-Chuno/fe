@@ -1,16 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Hls from 'hls.js';
+import videojs from 'video.js';
 import 'video.js/dist/video-js.css'; // video.js 기본 스타일
+import 'videojs-hls-quality-selector'; // HLS Quality Selector 플러그인
 import './CourseDetail.css';
 
 const CourseDetail = () => {
   const { id } = useParams(); // URL에서 강의 ID를 가져옴
   const [course, setCourse] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false); // 비디오 재생 상태 관리
   const navigate = useNavigate();
   const videoRef = useRef(null); // 비디오 요소를 참조하는 변수
+  const playerRef = useRef(null); // video.js 플레이어 참조
 
   useEffect(() => {
     const fetchCourseDetails = async () => {
@@ -30,38 +31,33 @@ const CourseDetail = () => {
     fetchCourseDetails();
 
     return () => {
-      if (videoRef.current) {
-        videoRef.current.src = ''; // 비디오 소스 제거
+      if (playerRef.current) {
+        playerRef.current.dispose(); // 컴포넌트 언마운트 시 플레이어 제거
       }
     };
   }, [id, navigate]);
 
   useEffect(() => {
     if (course && videoRef.current) {
-      const video = videoRef.current;
+      // video.js 플레이어 초기화
+      playerRef.current = videojs(videoRef.current, {
+        controls: true,
+        autoplay: false,
+        preload: 'auto',
+        sources: [
+          {
+            src: course.file_url, // m3u8 파일 URL
+            type: 'application/x-mpegURL',
+          },
+        ],
+      });
 
-      // HLS.js를 사용하여 브라우저에서 HLS가 지원되지 않을 때도 m3u8 파일 재생
-      if (Hls.isSupported()) {
-        const hls = new Hls();
-        hls.loadSource(course.file_url);
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          // HLS가 준비되면 play() 호출을 위한 준비
-        });
-      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        // HLS를 네이티브로 지원하는 경우
-        video.src = course.file_url;
-      }
+      // HLS Quality Selector 초기화
+      playerRef.current.hlsQualitySelector({
+        displayCurrentQuality: true,
+      });
     }
   }, [course]);
-
-  const handlePlay = () => {
-    const video = videoRef.current;
-    if (video) {
-      video.play();
-      setIsPlaying(true); // 재생 상태 업데이트
-    }
-  };
 
   if (!course) {
     return <div>Loading...</div>; // 데이터가 로드되지 않았을 때 로딩 메시지 표시
@@ -87,17 +83,14 @@ const CourseDetail = () => {
       {/* 비디오.js 플레이어 */}
       <div className="video-player-container">
         <video
-          ref={videoRef}
+          ref={videoRef} // video.js 플레이어 초기화를 위한 참조
           className="video-js vjs-default-skin"
           controls
-          width="560"
+          preload="auto"
+          width="640"
           height="360"
+          id="my-video" // 플레이어 ID 추가
         />
-        {!isPlaying && (
-          <button onClick={handlePlay} className="play-button">
-            Play Video
-          </button>
-        )}
       </div>
     </div>
   );
