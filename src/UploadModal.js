@@ -1,4 +1,3 @@
-// UploadModal.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -9,7 +8,16 @@ const UploadModal = ({ isOpen, onClose, fetchCourses }) => {
 
   // 파일 선택 핸들러
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    const allowedTypes = ['video/mp4', 'video/mpeg', 'video/ogg', 'video/webm', 'video/mp2t']; // 허용할 파일 타입 목록
+
+    if (selectedFile && !allowedTypes.includes(selectedFile.type)) {
+      alert('동영상 파일만 업로드할 수 있습니다.');
+      setFile(null); // 잘못된 파일 선택 시 파일 상태 초기화
+      return;
+    }
+
+    setFile(selectedFile);
   };
 
   // 제목 입력 핸들러
@@ -57,7 +65,7 @@ const UploadModal = ({ isOpen, onClose, fetchCourses }) => {
       <div className="modal-overlay">
         <div className="modal-content">
           <h2>강의 업로드</h2>
-          <input type="file" onChange={handleFileChange} />
+          <input type="file" onChange={handleFileChange} accept="video/*" /> {/* accept 속성 추가 */}
           <input
             type="text"
             placeholder="제목"
