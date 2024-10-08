@@ -27,7 +27,7 @@ const Login = () => {
   
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: (result) => {
-        alert('로그인 성공!');
+
   
         const accessToken = result.getAccessToken().getJwtToken();
         localStorage.setItem('accessToken', accessToken);
@@ -47,7 +47,7 @@ const Login = () => {
           }
   
           // Redirect to CourseList
-          navigate('/CourseList');
+          navigate('/');
           window.location.reload();
         });
       },
