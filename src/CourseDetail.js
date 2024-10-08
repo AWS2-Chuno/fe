@@ -66,19 +66,17 @@ const CourseDetail = () => {
   return (
     <div className="course-detail-container">
       <h2 className="course-detail-title">{course.title}</h2>
-      <img src={course.thumbnail_path} alt={`${course.title} thumbnail`} className="course-detail-thumbnail" />
-      <p className="course-detail-description">{course.description}</p>
+      {/* <img src={course.thumbnail_path} alt={`${course.title} thumbnail`} className="course-detail-thumbnail" /> */}
+      
+      <p className="course-detail-description">description: {course.description}</p>
+      
       <div className="course-detail-info">
         <span>Uploader: {course.uploader}</span>
+        <br></br>
         <span>Date: {new Date(course.timestamp).toLocaleDateString()}</span>
       </div>
 
-      {/* 파일 URL 링크 표시 */}
-      <div className="course-detail-file">
-        <a href={course.file_url} target="_blank" rel="noopener noreferrer">
-          Download/Stream File
-        </a>
-      </div>
+      
 
       {/* 비디오.js 플레이어 */}
       <div className="video-player-container">
@@ -87,10 +85,18 @@ const CourseDetail = () => {
           className="video-js vjs-default-skin"
           controls
           preload="auto"
-          width="640"
-          height="360"
+          width="544"
+          height="306"
           id="my-video" // 플레이어 ID 추가
         />
+      </div>
+
+
+      {/* 파일 URL 링크 표시 */}
+      <div className="course-detail-file">
+        <a href={course.file_url} target="_blank" rel="noopener noreferrer" className="download-link">
+          Download File
+        </a>
       </div>
     </div>
   );
