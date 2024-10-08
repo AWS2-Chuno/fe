@@ -74,7 +74,6 @@ const CourseList = () => {
     setViewMode('mine');
     setFilteredCourses(myCourses);
     setCurrentPage(1); // 페이지를 첫 페이지로 초기화
-
   };
 
   // 페이지네이션: 현재 페이지에 맞는 강의 목록 반환
@@ -85,8 +84,6 @@ const CourseList = () => {
   };
 
   const totalPages = Math.ceil(filteredCourses.length / itemsPerPage); // 전체 페이지 수 계산
-
-  
 
   return (
     <div className="course-container">
@@ -102,15 +99,13 @@ const CourseList = () => {
 
       <div className="course-list">
         {getPaginatedCourses().map(course => (
-          <div key={course.id} className="course-item">
+          <div key={course.id} className="course-item" onClick={() => navigate(`/courses/${course.id}`)}> {/* 박스를 클릭했을 때 상세 페이지로 이동 */}
             <img src={course.thumbnail_path} alt={`${course.title} thumbnail`} className="course-thumbnail" />            
             
             <div className="course-info">
-              <Link to={`/courses/${course.id}`} className="course-link">
-                <h3>{course.title}</h3>
-              </Link>
+              {course.title} {/* Link 태그 제거, 제목을 클릭했을 때 이동하게 수정 */}
               {viewMode === 'mine' && (
-                <button onClick={() => handleDelete(course.id)}>삭제</button>
+                <button onClick={(e) => {e.stopPropagation(); handleDelete(course.id);}}>삭제</button> 
               )}
             </div>
           </div>
