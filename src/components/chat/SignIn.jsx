@@ -16,11 +16,28 @@ const SignIn = ({ handleSignIn }) => {
     inputRef.current.focus();
   }, [loaded]); // eslint-disable-line
 
+  // Check if username is stored in localStorage
+  useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []);
+
+  const handleModeratorChange = (e) => {
+    if (!username) {
+      alert('회원만 매니저로 입장을 선택할 수 있습니다');
+      setModerator(false); // Reset the checkbox if user is not logged in
+    } else {
+      setModerator(e.target.checked);
+    }
+  };
+
   return (
     <div className="modal pos-absolute top-0 bottom-0">
       <div className="modal__el">
         <h1 className="mg-b-2">채팅방 입장</h1>
-        <form onSubmit={(e) => {e.preventDefault()}}>
+        <form onSubmit={(e) => { e.preventDefault(); }}>
           <fieldset>
             <label htmlFor="name" className="mg-b-05">
               Nickname
@@ -37,6 +54,7 @@ const SignIn = ({ handleSignIn }) => {
               onChange={(e) => {
                 e.preventDefault();
                 setUsername(e.target.value);
+                localStorage.setItem('username', e.target.value); // Save username to localStorage
               }}
             />
             <hr />
@@ -59,9 +77,7 @@ const SignIn = ({ handleSignIn }) => {
                 name="moderator"
                 className="mg-l-0 mg-r-1"
                 checked={moderator}
-                onChange={(e) => {
-                  setModerator(e.target.checked);
-                }}
+                onChange={handleModeratorChange} // Use the new handler
               />
               <label htmlFor="moderator">매니저로 입장</label>
             </div>
