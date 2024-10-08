@@ -12,7 +12,7 @@ const CourseList = () => {
   const [viewMode, setViewMode] = useState('all');
   
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지
-  const itemsPerPage = 4; // 페이지당 강의 개수
+  const itemsPerPage = 8; // 페이지당 강의 개수
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
